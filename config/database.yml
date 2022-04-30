@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: instagram
+
+test:
+  <<: *default
+  database: instagram_test
+
+production:
+  <<: *default
+  database: instagram_production
+  username: instagram
+  password: <%= ENV['INSTAGRAM_DATABASE_PASSWORD'] %>
