@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel='shotcut icon' href='https://cdn-icons-png.flaticon.com/128/1402/1402185.png'>
     <title>Instagram</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class='content'>
+      <%= render 'layouts/header' unless @check_header %>
+      <div class='container'>
+        <%= yield %>
+      </div>
+      <%= render 'layouts/footer' unless @check_footer %>
+    </div>
   </body>
 </html>

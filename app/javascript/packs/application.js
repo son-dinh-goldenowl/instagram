@@ -11,3 +11,16 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+document.addEventListener('turbolinks:load', () => {
+  $('[data-toggle=“tooltip”]').tooltip();
+  $('[data-toggle=“popover”]').popover();
+});
+
+const images = require.context('../images', true);
+const imagePath = (name) => images(name, true);
+window.jQuery = window.$ = require('jquery');
+
+require("./user")

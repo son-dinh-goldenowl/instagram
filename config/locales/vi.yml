@@ -1,0 +1,11 @@
+vi:
+  common:
+    language:
+      english: "Tiếng anh"
+      vietnamese: "Tiếng việt"
+  user:
+    log_in: "Đăng nhập"
+    logout: "Đăng xuất"
+    sign_up: "Đăng ký"
+    settings: "Cài đặt"
+    profile: "Thông tin cá nhân"
