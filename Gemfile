@@ -13,6 +13,15 @@ gem 'jbuilder', '~> 2.7'
 
 #add gem
 gem 'figaro'
+gem 'devise'
+gem 'bootstrap-sass'
+gem 'rails-i18n'
+gem 'pry-rails', :group => :development
+gem 'carrierwave'
+gem 'jquery-rails'
+# gem 'slim'
+# gem 'simple_form'
+
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
