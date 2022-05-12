@@ -1,0 +1,22 @@
+.sign-up
+  .form-sign-up
+    .icon-security
+      = image_pack_tag ('security.png')
+    .title-reset-pw
+      h4 Trouble Logging In?
+      p Enter your email, phone, or username and we'll send you a link to get back into your account.
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = render 'devise/shared/error_messages', resource: resource
+      .field
+        span#span_user_email.placeholder Email
+        = f.email_field :email, autofocus: true, autocomplete: 'email'
+      .actions
+        = f.button 'Send Login Link', class: 'btn btn-primary'
+    .or
+      .border-secondary
+      h5 OR
+      .border-secondary
+    .new-account
+      = link_to 'Create New Account', new_registration_path(resource_name)
+    .back-login
+      = link_to 'Back To Login', new_session_path(resource_name)

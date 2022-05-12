@@ -19,8 +19,9 @@ gem 'rails-i18n'
 gem 'pry-rails', :group => :development
 gem 'carrierwave'
 gem 'jquery-rails'
-# gem 'slim'
-# gem 'simple_form'
+gem 'slim'
+gem 'simple_form'
+gem 'mini_magick'
 
 
 gem 'bootsnap', '>= 1.4.4', require: false

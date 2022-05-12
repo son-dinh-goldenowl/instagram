@@ -1,0 +1,42 @@
+.login
+  .slide-login style=("background-image: url(#{asset_pack_url('media/images/phone-homepage.png')});")
+    .form-img
+      = image_pack_tag ('slide-1.png'), id: 'slide-img-1', class: 'hide-img'
+    .form-img
+      = image_pack_tag ('slide-2.png'), id: 'slide-img-2', class: 'hide-img'
+    .form-img
+      = image_pack_tag ('slide-3.png'), id: 'slide-img-3', class: 'hide-img'
+    .form-img
+      = image_pack_tag ('slide-4.png'), id: 'slide-img-4', class: 'hide-img'
+  .sign-in
+    .form-sign-up
+      = image_pack_tag ('logo.png')
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          span#span_user_email.placeholder Email
+          = f.email_field :email
+        .field
+          span#span_user_password.placeholder Password
+          = f.password_field :password
+          span#show_password Show
+          span#hide_password Hide
+        .actions
+          = f.button 'Log in', class: 'btn btn-primary'
+        - if notice.present?
+          p.alert.text-succes.alert-success.font-weight-bolds= notice
+        - if alert.present?
+          p.alert.text-danger.alert-danger= alert
+      .or
+        .border-secondary
+        h5 OR
+        .border-secondary
+      button.btn.btn-primary.btn-fabebook.fb-login
+        .sns-facebook
+          = image_pack_tag ('facebook-icon.png'), class: 'icon-facebook'
+          p.connect-facebook Log in with Facebook
+      = link_to 'Forgot password?', new_password_path(resource_name), class: 'forgot-password'
+      br/
+    .form-group
+      p
+        | Don't have an account? #{link_to 'Sign up', new_registration_path(resource_name)}
+    = render 'layouts/get_app'

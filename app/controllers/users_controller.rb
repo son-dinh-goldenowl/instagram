@@ -1,17 +1,28 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: :show
+  before_action :load_user, only: [:show, :update]
+
   def show
   end
 
-  def load_user
-    @user = User.find_by(id: params[:id])
-    return if @user
-    render 'devise/shared/not_found'
+  def upload_avatar
+    return render_avatar(params[:file]) if params[:file].content_type.split('/').first == 'image'
+
+    render_avatar(false)
   end
 
-  def validate_email_user
-    flash[:error_email] = []
-    flash[:error_email] << 'hahaa' if User.all.pluck(:email).include?(params[:email])
-    # render 'devise/registrations/new'
+  def destroy_avatar
+    render_avatar('')
+  end
+
+  def render_avatar(params)
+    @user = current_user
+    @user.update(avatar: params) if params != false
+    render json: { html: render_to_string(partial: 'avatar') }
+  end
+
+  private
+
+  def load_user
+    @user = User.find_by(id: params[:id])
   end
 end

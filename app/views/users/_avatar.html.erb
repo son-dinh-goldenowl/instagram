@@ -1,0 +1,1 @@
+<%= @user.avatar? ? image_tag(@user.avatar_url.to_s, class: 'rounded-circle', id: 'avatar') :  image_pack_tag('default-avatar.png', class: 'rounded-circle', id: 'avatar' ) %>

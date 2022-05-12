@@ -5,6 +5,14 @@ html, body {
   height: 100%;
 }
 
+.h-30 {
+  height: 30%;
+}
+
+.mt-20 {
+  margin-top: 20%;
+}
+
 .content {
   width: 100%;
   min-height: 100%;
@@ -44,7 +52,7 @@ html, body {
     .link-header {
       display: flex;
       .col-md-2 {
-        margin: 3.5% 0;
+        margin: 4.5% 0;
       }
       .avatar {
         padding: 0;
@@ -53,14 +61,15 @@ html, body {
           padding: 5px;
         }
         img {
-          width: 80%;
-          margin: 0 10%;
+          width: 35px;
+          height: 35px;
           height: 100%;
         }
       }
       img {
-        width: 80%;
-        margin: 10%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
       }
       .dropdown-menu {
         width: 230px;
@@ -159,6 +168,7 @@ html, body {
 
       label {
         font-family: 'Font Awesome 5 Free';
+        font-size: 13px;
       }
 
       .note-sign-up {
@@ -216,6 +226,7 @@ html, body {
       color: #000;
     }
     p {
+      font-size: 13px;
       color: #8E8E8E;
     }
   }
@@ -262,6 +273,7 @@ html, body {
     a {
       width: 33%;
       margin: 8.25%;
+      font-size: 13px;
     }
     .btn-dark {
       background: #000;
@@ -299,7 +311,7 @@ html, body {
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  border: 1px solid;
+  border: 1px solid #000 !important;
   margin: 3% 30%;
   text-align: center;
   background-image: url("default-avatar.png");
@@ -346,7 +358,6 @@ html, body {
   display: flex;
   flex-direction: row;
   width: 75%;
-  height: 100%;
   margin: 4% 12.5%;
   .slide-login {
     width: 53%;
@@ -356,7 +367,6 @@ html, body {
       width: 55%;
       float: right;
       vertical-align: middle;
-      height: 100%;
       margin: 5% 12%;
     }
     .hide-img {
@@ -407,5 +417,176 @@ html, body {
       text-align: center;
       color: #8E8E8E;
     }
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  .form-group-user{
+    margin: 2% 15%;
+    display: flex;
+    width: 70%;
+    .avatar-user {
+      width: 30%;
+      img {
+        height: 175ppx;
+        width: 175px;
+        cursor: pointer;
+      }
+    }
+    .info-user {
+      width: 70%;
+      display: flex;
+      margin: 0px 10%;
+      flex-direction: column;
+      .icon-setting {
+        width: 24px;
+        height: 24px;
+      }
+      a {
+        font-size: 13px;
+      }
+    }
+  }
+  .row-content {
+    display: flex;
+    width: 80%;
+    margin: 0 10%;
+    .img-default {
+      height: 380px;
+      width: 380px;
+    }
+    .get-app {
+      margin-top: 30%;
+      height: 100%;
+      img {
+        width: 40%;
+        margin: 0 10%;
+      }
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+  #content-tagged,
+  #content-saved {
+    text-align: center;
+    p {
+      font-size: 13px;
+      color: #8E8E8E;
+    }
+    h3 {
+      color: #0095F6;
+    }
+    .save-insta {
+      margin: 5% 10%;
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      img {
+        width: 62px;
+        height: 62px;
+        margin: 20px;
+      }
+      h1 {
+        margin: 20px;
+      }
+      p {
+        width: 40%;
+        margin: 0 30%;
+      }
+    }
+  }
+  .border-top {
+    border-top: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+    a {
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #000
+    }
+  }
+}
+
+#post,
+#saved,
+#tagged {
+  opacity: 0.5;
+  color: #8E8E8E
+}
+
+.border-top-dark {
+  border-top: 1px solid #000;
+  opacity: 1 !important;
+  color: #000 !important;
+}
+
+#modal-avatar {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 30% !important;
+  margin: 20% 35%;
+  height: auto;
+  overflow: auto;
+  background-color: #fff;
+  text-align: center;
+  border: 2px solid #8E8E8E;
+  border-radius: 30px;
+  h1 {
+    padding: 15px;
+  }
+  h3 {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+  }
+  .border-bottom {
+    font-weight: bold;
+    border-bottom: 1px solid #8E8E8E;
+  }
+  #avatar_avatar {
+    display: none;
+  }
+}
+
+.modal-open {
+  opacity: 0.5;
+}
+
+.edit {
+  display: flex;
+  width: 90%;
+  margin: 50px 5%;
+  background-color: #fff;
+  border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+  font-size: 13px;
+  .btn {
+    font-size: 15px;
+    width: auto;
+  }
+  .nav-user{
+    padding: 20px 0;
+    width: 20%;
+    border-right: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+    font-size: 15px !important;
+  }
+  .nav-link {
+    cursor: pointer;
+  }
+  .edit_user{
+    width: 70%;
+    margin: 5%;
+  }
+  #change-password {
+    display: none;
+  }
+  .bg-light {
+    color: #000 !important;
+    background: #fff !important;
   }
 }
