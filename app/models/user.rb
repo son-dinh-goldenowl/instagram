@@ -10,27 +10,18 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, on: :create
-  validate  :valid_age, if: -> { birthday.present? }
+  validates :birthday, presence: true, validate_age: { message: :invalid_birthday }, if: -> { birthday.present? }
+  validates :telephone, length: { minimum: 9, maximum: 11 },
+            format: { with: VALID_PHONE_REGEX ,
+            message: :invalid_phone }, if: -> { telephone.present? }
 
   mount_uploader :avatar, ImageUploader
   before_save { email.downcase }
+#   after_commit { p 'after_commit' }
+#   before_save { p 'before_save' }
 
-  private
-
-  def valid_age
-    return if valid_date_range.include?(birthday)
-    errors.add(:birthday, message: :invalid_birthday)
-  end
-
-  def valid_date_range
-    maximum_date..minimum_date
-  end
-
-  def minimum_date
-    Date.new(Date.today.year - 6)
-  end
-
-  def maximum_date
-    Date.new(Date.today.year - 120)
-  end
+#   after_validation { p 'after_validation' }
+#   before_validation { p 'before_validation' }
+#   after_save { p 'after_save' }
+# end
 end

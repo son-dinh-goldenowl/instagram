@@ -3,8 +3,10 @@
     <nav class="nav-pills nav-justified flex-column">
       <%= link_to 'Edit Profile', edit_user_registration_path, class: 'nav-link active', id: 'link-edit-profile' %>
       <h3 class="nav-link" href="#" id='form-change-password'>Change Password</h3>
+      <h3 class="nav-link" href="#" id='form-destroy-account'>Cancel</h3>
     </nav>
   </div>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, id: 'edit-info' }) do |f| %>
     <div class='row form-group m-0 p-0 mb-3 align-items-center'>
       <div class='avatar-user'>
@@ -37,6 +39,16 @@
       <%= f.text_field :gender, class: 'col-md-8 p-1', autofocus: true, autocomplete: 'user_name' %>
     </div>
 
+    <div class='row form-group flex-row'>
+      <%= f.label :birthday, class: 'col-md-4' %>
+      <%= f.date_field :birthday, class: 'form-control col-md-8' %>
+    </div>
+
+    <div class='row form-group flex-row'>
+      <div class='col-md-4'></div>
+        <%= render 'devise/shared/error_messages' , resource: resource, class: 'col-md-8' %>
+    </div>
+
     <div class='row actions justify-content-end'>
       <%= f.submit 'Update', class: 'btn btn-info col-md-8' %>
     </div>
@@ -57,11 +69,24 @@
       <label class='col-md-4'>Confirm New Password</label>
       <%= f.password_field :password_confirmation, class: 'col-md-8 p-1', autocomplete: 'new-password' %>
     </div>
+    <%= render 'devise/shared/error_messages' , resource: resource, class: 'col-md-8' %>
 
     <div class='row actions justify-content-end'>
       <%= f.submit 'Update', class: 'btn btn-info col-md-8' %>
     </div>
   <% end %>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :delete, id: 'destroy-user', data: { confirm: 'Are you sure?' } }) do |f| %>
+    <div class='row form-group flex-row'>
+      <label class='col-md-4'>Old Password</label>
+      <%= f.password_field :current_password, class: 'col-md-8 p-1', autocomplete: 'current-password' %>
+    </div>
+  <div class="text-danger">
+    <%= flash[:invalid_password] %>
+  </div>
+    <div class='row actions justify-content-end'>
+      <%= f.submit 'Cancel my account', class: 'btn btn-info col-md-8' %>
+    </div>
+  <% end %>
 </div>
 <%= render 'layouts/modal_avatar' %>
-<%# <%= button_to 'Cancel my account', registration_path(resource_name), class: 'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete %>

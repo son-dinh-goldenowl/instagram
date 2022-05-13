@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   skip_before_action :verify_authenticity_token
+  # include Pundit
 
   private
 
@@ -26,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname, :user_name, :email, :password])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :user_name, :email, :telephone, :gender])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:fullname, :user_name, :email, :birthday, :password])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:fullname, :user_name, :email, :telephone, :gender, :birthday])
   end
 end

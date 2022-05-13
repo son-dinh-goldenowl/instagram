@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'slim'
 gem 'simple_form'
 gem 'mini_magick'
+gem 'pundit'
 
 
 gem 'bootsnap', '>= 1.4.4', require: false

@@ -25,6 +25,8 @@
         span#span_user_password.placeholder Password
         = f.password_field :password
       .actions
+        = f.date_field :birthday
+      .actions
         = f.button 'Sign up', class: 'btn btn-primary'
       .note-sign-up
         h5
@@ -32,7 +34,7 @@
           b Terms, Data Policy
           | and
           b Cookies Policy
-          | \.
+          |
   .form-group
     p
       | Have an account? #{link_to "Log in", new_session_path(resource_name)}
