@@ -17,11 +17,4 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, ImageUploader
   before_save { email.downcase }
-#   after_commit { p 'after_commit' }
-#   before_save { p 'before_save' }
-
-#   after_validation { p 'after_validation' }
-#   before_validation { p 'before_validation' }
-#   after_save { p 'after_save' }
-# end
 end
