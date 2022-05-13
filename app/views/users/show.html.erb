@@ -85,3 +85,11 @@
   </div>
 </div>
 <%= render 'layouts/modal_avatar' %>
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load',function () {
+    $('#content-saved').hide();
+    $('#content-tagged').hide();
+    $('#content-post').show();
+  })
+</script>

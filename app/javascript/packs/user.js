@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function () {
+$(document).ready(function() {
   check_input('user_email');
   check_input('user_fullname');
   check_input('user_user_name');
@@ -59,10 +59,6 @@ $(document).on('turbolinks:load',function () {
     }
   });
 
-  $('#content-saved').hide();
-  $('#content-tagged').hide();
-  $('#content-post').show();
-
   $(document).on('click', '#post, #saved, #tagged', function () {
     if (this == post) {
       $('#content-saved').hide();
@@ -90,7 +86,10 @@ $(document).on('turbolinks:load',function () {
 
   $(document).on('click', '#avatar', function () {
     $('#modal-avatar').show();
-    $('.form-group').addClass('modal-open');
+    if ($('#modal-avatar').val() != undefined){
+      $('.form-group').addClass('modal-open');
+      $('#avatar_user').hide();
+    }
   });
 
   $(document).on('click', '#upload-photo', function () {
@@ -109,7 +108,6 @@ $(document).on('turbolinks:load',function () {
     }
   });
 
-  $('#avatar_user').hide();
   $(document).on('change', '#avatar_user', ({ target }) => {
     let files = $(target)[0].files;
     let fd = new FormData();
@@ -147,8 +145,19 @@ $(document).on('turbolinks:load',function () {
 
   $(document).on('click', '#form-change-password', function () {
     $('#edit-info').hide();
+    $('#destroy-user').hide();
     $('#change-password').show();
     $('#link-edit-profile').addClass('bg-light');
-    $('#form-change-password').addClass('bg-primary');
+    $('#form-destroy-account').addClass('bg-light');
+    $('#form-change-password').addClass('bg-info');
+  });
+
+  $(document).on('click', '#form-destroy-account', function () {
+    $('#edit-info').hide();
+    $('#change-password').hide();
+    $('#destroy-user').show();
+    $('#link-edit-profile').addClass('bg-light');
+    $('#form-change-password').addClass('bg-light');
+    $('#form-destroy-account').addClass('bg-danger');
   });
 });
