@@ -590,6 +590,10 @@ html, body {
     color: #000 !important;
     background: #fff !important;
   }
+  #user_birthday {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 }
 
 #error_explanation {

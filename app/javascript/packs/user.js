@@ -147,17 +147,11 @@ $(document).ready(function() {
     $('#edit-info').hide();
     $('#destroy-user').hide();
     $('#change-password').show();
-    $('#link-edit-profile').addClass('bg-light');
-    $('#form-destroy-account').addClass('bg-light');
-    $('#form-change-password').addClass('bg-info');
   });
 
   $(document).on('click', '#form-destroy-account', function () {
     $('#edit-info').hide();
     $('#change-password').hide();
     $('#destroy-user').show();
-    $('#link-edit-profile').addClass('bg-light');
-    $('#form-change-password').addClass('bg-light');
-    $('#form-destroy-account').addClass('bg-danger');
   });
 });

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_30_120743) do
+ActiveRecord::Schema.define(version: 2022_05_14_022601) do
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "fullname", default: "", null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_04_30_120743) do
     t.datetime "birthday"
     t.string "telephone", default: "", null: false
     t.string "gender", default: "", null: false
+    t.string "bio", default: ""
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"
     t.datetime "current_sign_in_at"
