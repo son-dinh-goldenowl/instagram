@@ -14,7 +14,9 @@ body
              a href=root_path
               =image_pack_tag ('home.png')
           .col-md-2= image_pack_tag ('messenger.png')
-          .col-md-2= image_pack_tag ('add.png')
+          .col-md-2
+            a href=new_post_path
+               = image_pack_tag ('add.png')
           .col-md-2= image_pack_tag ('compass.png')
           .col-md-2= image_pack_tag ('heart.png')
           .col-md-2.avatar

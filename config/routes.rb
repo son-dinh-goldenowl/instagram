@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       end
     end
     resources :users
+    resources :posts
     post 'upload-avatar', to: 'users#upload_avatar'
     post 'destroy-avatar', to: 'users#destroy_avatar'
   end

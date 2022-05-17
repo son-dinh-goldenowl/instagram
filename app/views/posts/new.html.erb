@@ -1,0 +1,9 @@
+<%= binding.pry%>
+<div class='row'>
+  <div class='col-md-6 col-md-offset-2'>
+    <%= form_with(model: @post, local: true) do |f| %>
+      <%= f.file_field :photo %>
+      <%= f.text_field :caption %>
+    <% end %>
+  </div>
+</div>
