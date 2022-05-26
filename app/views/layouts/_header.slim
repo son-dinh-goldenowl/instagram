@@ -1,0 +1,30 @@
+body
+  header#header
+    .row.content-header
+      .col-md-4
+        a href=root_path
+          = image_pack_tag ('logo.png'), id: 'logo'
+      - if user_signed_in?
+        .col-md-4
+          .form-search
+            i.fas.fa-search
+            input.form-control type="search" /
+        .col-md-4.link-header
+          .col-md-2
+             a href=root_path
+              =image_pack_tag ('home.png')
+          .col-md-2= image_pack_tag ('messenger.png')
+          .col-md-2= image_pack_tag ('add.png')
+          .col-md-2= image_pack_tag ('compass.png')
+          .col-md-2= image_pack_tag ('heart.png')
+          .col-md-2.avatar
+            ul.navbar-nav
+              li.nav-item.dropdown
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+                  img.rounded-circle height="40" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" /
+                .dropdown-menu aria-labelledby="navbarDropdownMenuLink"
+                  = link_to I18n.t('user.profile'), user_path(current_user), class: 'dropdown-item'
+                  a.dropdown-item href="#"  Saved
+                  = link_to I18n.t('user.settings'), edit_user_registration_path, class: 'dropdown-item'
+                  a.dropdown-item href="#"  Switch Accounts
+                  = link_to I18n.t('user.logout'), destroy_user_session_path, method: 'delete', class: 'dropdown-item'

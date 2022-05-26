@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
-    devise_for :users
+    devise_for :users, :controllers => {
+      :registrations => 'users/registrations',
+      :sessions => 'users/sessions'
+    }
 
     devise_scope :user do
       authenticated :user do
@@ -11,7 +14,8 @@ Rails.application.routes.draw do
         root 'devise/sessions#new'
       end
     end
-    resources :users, only: [:show]
-    post 'validate-email-user', to: 'users#validate_email_user'
+    resources :users
+    post 'upload-avatar', to: 'users#upload_avatar'
+    post 'destroy-avatar', to: 'users#destroy_avatar'
   end
 end

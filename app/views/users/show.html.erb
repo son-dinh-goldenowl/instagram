@@ -1,15 +1,98 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= @user.fullname %>
-      </h1>
-      <h1>
-        <%= @user.email %>
-      </h1>
-      <h1>
-        <%= image_pack_tag ('default-avatar.png'), class: 'mr-1' %>
-      </h1>
-    </section>
-  </aside>
+<div class='form-group'>
+  <div class='form-group-user'>
+    <div class='avatar-user'>
+      <%= render 'avatar'%>
+    </div>
+    <div class='info-user'>
+      <div class='row h-30'>
+        <div class='col-4'>
+          <h1><%= @user.user_name %></h1>
+        </div>
+        <div class='col-4'>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: 'btn btn-secondary'%>
+        </div>
+        <div class='col-4'>
+          <%= image_pack_tag ('settings.png'), class: 'icon-setting' %>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-4'>
+          <h2><b>1</b> post</h2>
+        </div>
+        <div class='col-4'>
+          <h2><b>1</b> post</h2>
+        </div>
+        <div class='col-4'>
+          <h2><b>1</b> post</h2>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-12'>
+          <h2 class='font-weight-bold'><%= @user.fullname %></h2>
+        </div>
+        <div class='col-12'>
+          <h3 class=''><%= @user.bio %></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='row form-group border-top'>
+    <ul class='nav justify-content-center'>
+      <li class='nav-item'>
+        <a class='nav-link active border-top-dark' id='post'>post</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' id='saved'>saved</a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link' id='tagged'>tagged</a>
+      </li>
+    </ul>
+  </div>
+  <div class='row-content' id='content-post'>
+    <div class='col-6'>
+      <%= image_pack_tag ('default-info.png'), class: 'img-default' %>
+    </div>
+    <div class='col-6'>
+      <div class='get-app'>
+        <h2 class='font-weight-bold'>Start capturing and sharing your moments.</h2>
+        <%= render 'layouts/get_app'%>
+      </div>
+    </div>
+  </div>
+  <div id='content-saved'>
+    <div class='row col-12'>
+      <div class='col-6 text-left'>
+        <p>Only you can see what you've saved</p>
+      </div>
+      <div class='col-6 text-right'>
+        <h3>+ New Collection</h3>
+      </div>
+    </div>
+    <div class='save-insta'>
+      <div class='img-insta'>
+        <%= image_pack_tag ('save-instagram.png') %>
+      </div>
+      <h1>Save</h1>
+      <p>Save photos and videos that you want to see again. No one is notified, and only you can see what you've saved.</p>
+    </div>
+  </div>
+  <div id='content-tagged'>
+    <div class='save-insta'>
+      <div class='img-insta'>
+        <%= image_pack_tag ('tag.png') %>
+      </div>
+      <h1>Photos of you</h1>
+      <p>When people tag you in photos, they'll appear here.</p>
+    </div>
+  </div>
 </div>
+<%= render 'layouts/modal_avatar' %>
+
+<script type="text/javascript">
+  $(document).on('turbolinks:load',function () {
+    $('#content-saved').hide();
+    $('#content-tagged').hide();
+    $('#content-post').show();
+  })
+</script>

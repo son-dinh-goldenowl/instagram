@@ -9,3 +9,14 @@ en:
     sign_up: "Sign up"
     settings: "Settings"
     profile: "Profile"
+  activerecord:
+      errors:
+        models:
+          user:
+            attributes:
+              email:
+                not_found: "Not found"
+              telephone:
+                invalid_phone: "only positive number without spaces are allowed"
+              birthday:
+                invalid_birthday: "invalid. Please enter a valid date of birth"

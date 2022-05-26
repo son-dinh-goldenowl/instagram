@@ -1,0 +1,9 @@
+<% if current_user == @user%>
+  <div id="modal-avatar">
+    <h1 class="border-bottom">Change Profile Photo</h1>
+    <h3 class="border-bottom" id='upload-photo' style='color: #0095F6'>Upload Photo</h3>
+    <h3 class="border-bottom" id='delete-avt' style='color: #ED4956'>Remove Current Photo</h3>
+    <h3 id='cancel-modal'>Cancel</h3>
+    <%= file_field :avatar, 'user' %>
+  </div>
+<% end %>
